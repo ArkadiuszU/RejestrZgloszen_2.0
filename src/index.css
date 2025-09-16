@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --color-my_red: #eb3d34;
+  --color-my_green: #b2f2b1;
+  /* inne zmienne */
+}
