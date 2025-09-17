@@ -26,5 +26,15 @@ jobs:
       shell: powershell
       run: |
         $source = "${{ github.workspace }}\dist\*"
-        $destination = "\\pozmda02\w$\testGithubActions"
-        Copy-Item -Path $source -Destination $destination -Recurse -Force
+        
+        # Ścieżki plików źródłowych
+        $fileJs = Join-Path $repoPath "DuniRequestRegistry.js"
+        $fileCss = Join-Path $repoPath "DuniRequestRegistry.css"
+        
+        # Destinations
+        $destinationJs = "\\pozmda02\w$\Test_arkurb\wwwroot\js\app"
+        $destinationCss = "\\pozmda02\w$\Test_arkurb\wwwroot\css\app\DuniRequestRegistry"
+        
+        # Copy files
+        Copy-Item -Path $fileJs -Destination $destinationJs -Force
+        Copy-Item -Path $fileCss -Destination $destinationCss -Force
