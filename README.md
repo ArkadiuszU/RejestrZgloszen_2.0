@@ -1,69 +1,47 @@
-# React + TypeScript + Vite
+## Folder Structure
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project uses the following folder separation:
+- **atoms/** – Jotai atoms for global state management (logic, data)
+- **components/** – Presentational components (UI), pure components without business logic
+- **components/containers/** – Container components which manage logic and connect state with presentational components
+- **hooks/** – Custom React hooks that encapsulate logic and functionalities
+- **pages/** – Views and main screens of the application (e.g., for routing)
+- **utils/** – Utility and helper functions
+- **assets/** – Static resources (images, icons, fonts, etc.)
 
-Currently, two official plugins are available:
+Example folder structure:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+src/
+├── assets/
+│ ├── images/
+│ │ └── logo.png
+│ └── fonts/
+│ └── OpenSans.ttf
+├── atoms/
+│ ├── userAtom.ts
+│ └── cartAtom.ts
+├── components/
+│ ├── containers/
+│ │ └── CounterContainer.tsx (container component)
+│ ├── common/
+│ ├── layout/
+│ └── Counter.tsx (presentational component)
+├── hooks/
+│ ├── useAuth.ts
+│ └── useCounter.ts
+├── pages/
+│ └── HomePage.tsx
+├── utils/
+│ └── formatPrice.ts
+├── App.tsx
+├── main.tsx
 
-## Expanding the ESLint configuration
+text
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Guidelines:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Logic** (atoms, hooks, containers) and **presentation** (components) are separated for better code clarity and project scalability.
+- Container components live inside the `components/containers` subfolder, as they combine business logic and state with UI components.
+- The pure presentation components are inside `components/` directly or under subfolders like `common/`, `layout/`.
+- `hooks` contains reusable logic functions used across containers or components.
+- Static assets are kept in the `assets` folder for organized resource management.

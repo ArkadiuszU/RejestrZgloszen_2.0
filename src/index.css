@@ -1,7 +1,31 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'primereact/resources/themes/lara-light-cyan/theme.css';
 
-@theme {
-  --color-my_red: #eb3d34;
-  --color-my_green: #b2f2b1;
-  /* inne zmienne */
+
+@layer base{
+html {
+  font-size: 9px;
 }
+}
+
+/* @theme {
+  --color-light_gray: #F5F5F5;
+  --color-orange: #DD8E58;
+  --color-teal_gray: #708A81;      
+  --color-sand_beige: #E5D1B8;      
+  --color-warm_brown: #C2956E;       
+  --color-deep_purple: #2B2129; 
+  --color-deep_purple_hovered: #4B3B48;       
+} */
+
+/* @layer components{
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300
+   }
+}
+
+@utility flex-column
+{
+  @apply flex flex-col items-center
+} */
+
