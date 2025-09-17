@@ -1,4 +1,4 @@
-import {atom, useAtom} from "jotai"
+import {atom} from "jotai"
 
 import HomePage from "./pages/HomePage";
 
