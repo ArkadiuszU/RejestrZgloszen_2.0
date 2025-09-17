@@ -17,7 +17,7 @@ export function Counter({ count, onIncrement, onDecrement, onReset }: CounterPro
         <div>
           <Button onClick={onIncrement}>+</Button>
           <Button severity="danger" className="btn_minus" onClick={onDecrement}>-</Button>
-          <Button severity="secondary" className="btn_reset" onClick={onReset}>Reset</Button>
+          <Button severity="info" className="btn_reset" onClick={onReset}>Reset</Button>
         </div>
       </Card>
     </>
