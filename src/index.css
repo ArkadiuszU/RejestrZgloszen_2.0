@@ -5,10 +5,11 @@
 @layer base{
 html {
   font-size: 9px;
+  @apply m-0 p-0;
 }
 }
 
-/* @theme {
+@theme {
   --color-light_gray: #F5F5F5;
   --color-orange: #DD8E58;
   --color-teal_gray: #708A81;      
@@ -16,7 +17,7 @@ html {
   --color-warm_brown: #C2956E;       
   --color-deep_purple: #2B2129; 
   --color-deep_purple_hovered: #4B3B48;       
-} */
+}
 
 /* @layer components{
   .card {
