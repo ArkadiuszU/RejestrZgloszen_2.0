@@ -1,0 +1,30 @@
+name: Build and Deploy to Network Share
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies and build
+      run: |
+        npm install
+        npm run build
+
+    - name: Copy build to network share
+      shell: powershell
+      run: |
+        $source = "${{ github.workspace }}\dist\*"
+        $destination = "\\pozmda02\w$\testGithubActions"
+        Copy-Item -Path $source -Destination $destination -Recurse -Force
