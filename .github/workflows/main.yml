@@ -25,7 +25,7 @@ jobs:
     - name: Copy build to network share
       shell: powershell
       run: |
-        $source = "${{ github.workspace }}\dist\*"
+        $repoPath = "${{ github.workspace }}\dist"
         
         # Ścieżki plików źródłowych
         $fileJs = Join-Path $repoPath "DuniRequestRegistry.js"
