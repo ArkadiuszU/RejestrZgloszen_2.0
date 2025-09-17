@@ -8,7 +8,7 @@ export const counter = atom(false);
 function HomePage() {
   
   return (
-    <div className="w-screen h-screen bg-light_gray" >
+    <div className="bg-light_gray p-10" >
       <CounterContainer/>
     </div>
     
